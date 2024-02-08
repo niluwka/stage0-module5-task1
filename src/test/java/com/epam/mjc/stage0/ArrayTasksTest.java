@@ -86,13 +86,13 @@ public class ArrayTasksTest {
         assertArrayEquals(expectedArr, arrayTasks.getOnlyPositiveNumbers(arr));
     }
 
-//    @ParameterizedTest
-//    @MethodSource("sortRaggedArrayProvider")
-//    public void sortRaggedArrayTest(RaggedArray arr, RaggedArray expectedArr) {
-//
-//        assertArrayEquals(expectedArr.getArr(), arrayTasks.sortRaggedArray(arr.getArr()),
-//                "I think, something went wrong with sorting ragged array implementation");
-//    }
+    @ParameterizedTest
+    @MethodSource("sortRaggedArrayProvider")
+    public void sortRaggedArrayTest(RaggedArray arr, RaggedArray expectedArr) {
+
+        assertArrayEquals(expectedArr.getArr(), arrayTasks.sortRaggedArray(arr.getArr()),
+                "I think, something went wrong with sorting ragged array implementation");
+    }
 
 
     private static Stream<Arguments> totalSumTestProvider() {
@@ -100,26 +100,26 @@ public class ArrayTasksTest {
                 .map(arr -> Arguments.of(arr, Arrays.stream(arr).sum()));
     }
 
-//    private static Stream<Arguments> sortRaggedArrayProvider() {
-//
-//        return RANDOM.ints(20, 1, 5)
-//                .mapToObj(i -> getIntArraysStream(5, 1, 5)
-//                        .collect(Collectors.toList()))
-//                .map(arrList -> {
-//                    int[][] arr = new int[arrList.size()][];
-//                    for (int i = 0; i < arrList.size(); i++) {
-//                        arr[i] = arrList.get(i);
-//                    }
-//                    return arr;
-//                })
-//                .map(RaggedArray::new)
-//                .map(raggedArray ->
-//                        Arguments.of(raggedArray, RaggedArray.of(Arrays.stream(raggedArray.getArr())
-//                                .sorted(Comparator.comparingInt(array -> array.length))
-//                                .peek(Arrays::sort)
-//                                .toArray(int[][]::new))
-//                        ));
-//    }
+    private static Stream<Arguments> sortRaggedArrayProvider() {
+
+        return RANDOM.ints(20, 1, 5)
+                .mapToObj(i -> getIntArraysStream(5, 1, 5)
+                        .collect(Collectors.toList()))
+                .map(arrList -> {
+                    int[][] arr = new int[arrList.size()][];
+                    for (int i = 0; i < arrList.size(); i++) {
+                        arr[i] = arrList.get(i);
+                    }
+                    return arr;
+                })
+                .map(RaggedArray::new)
+                .map(raggedArray ->
+                        Arguments.of(raggedArray, RaggedArray.of(Arrays.stream(raggedArray.getArr())
+                                .sorted(Comparator.comparingInt(array -> array.length))
+                                .peek(Arrays::sort)
+                                .toArray(int[][]::new))
+                        ));
+    }
 
 
     private static Stream<Arguments> reverseArrayTestProvider() {
