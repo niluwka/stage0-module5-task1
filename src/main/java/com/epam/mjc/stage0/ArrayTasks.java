@@ -1,32 +1,43 @@
-//package com.epam.mjc.stage0;
-//
-///**
-// * Here are the tasks for working with the arrays.
-// * <p>
-// * The usage of any additional packages (such as java.util.*) is forbidden.
-// */
-//public class ArrayTasks {
-//
-//    /**
-//     * Return a String[] array that will list all the seasons of the year, starting with winter.
-//     */
-//    public String[] seasonsArray() {
-//
-//    }
-//
-//    /**
-//     * Generate an int[] array of consecutive positive integers
-//     * starting at 1 of the given length (length parameter > 0).
-//     * <p>
-//     * Example:
-//     * <p>
-//     * length = 1  -> [1]
-//     * length = 3  -> [1, 2, 3]
-//     * length = 5  -> [1, 2, 3, 4, 5]
-//     */
-//    public int[] generateNumbers(int length) {
-//
-//    }
+package com.epam.mjc.stage0;
+
+
+
+/**
+ * Here are the tasks for working with the arrays.
+ * <p>
+ * The usage of any additional packages (such as java.util.*) is forbidden.
+ */
+public class ArrayTasks {
+
+    /**
+     * Return a String[] array that will list all the seasons of the year, starting with winter.
+     */
+    public String[] seasonsArray() {
+        String[] mas = new String[]{"winter", "spring", "summer", "autumn"};
+        return mas;
+    }
+
+    /**
+     * Generate an int[] array of consecutive positive integers
+     * starting at 1 of the given length (length parameter > 0).
+     * <p>
+     * Example:
+     * <p>
+     * length = 1  -> [1]
+     * length = 3  -> [1, 2, 3]
+     * length = 5  -> [1, 2, 3, 4, 5]
+     */
+  public int[] generateNumbers(int length) {
+      int[] mas = new int[length];
+
+      for (int i = 0; i < mas.length; i++) {
+          mas[i] = i + 1;
+      }
+      return mas;
+
+
+
+  }
 //
 //    /**
 //     * Find the sum of all elements of the int[] array.
@@ -36,9 +47,14 @@
 //     * arr = [1, 3, 5]   -> sum = 9
 //     * arr = [5, -3, -4] -> sum = -2
 //     */
-//    public int totalSum(int[] arr) {
-//
-//    }
+    public int totalSum(int[] arr) {
+      int x = 0;
+        for (int i = 0; i < arr.length; i++) {
+          x  +=arr[i];
+        }
+
+        return x;
+    }
 //
 //    /**
 //     * Return the index of the first occurrence of number in the arr array.
@@ -49,9 +65,15 @@
 //     * arr = [99, -7, 102], number = -7    ->   2
 //     * arr = [5, -3, -4],   number = 10    ->  -1
 //     */
-//    public int findIndexOfNumber(int[] arr, int number) {
-//
-//    }
+    public int findIndexOfNumber(int[] arr, int number) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == number){
+                return i;
+            }
+
+        }
+        return -1;
+    }
 //
 //    /**
 //     * Return the new String[] array obtained from the arr array
@@ -62,11 +84,25 @@
 //     * arr = ["Bob", "Nick"]               -> ["Nick", "Bob"]
 //     * arr = ["pineapple", "apple", "pen"] -> ["pen", "apple", "pineapple"]
 //     */
-//    public String[] reverseArray(String[] arr) {
+    public String[] reverseArray(String[] arr) {
+
+        int n = arr.length;
+
+        String temp;
+
+        for (int i = 0; i < n/2; i++) {
+            temp = arr[n-i-1];
+            arr[n-i-1] = arr[i];
+            arr[i] = temp;
+        }
+
+        for (int i=0; i<arr.length; i++){
+            System.out.print(arr[i]);
+        }
+        return arr;
+    }
 //
-//    }
-//
-//    /**
+//    /**x`
 //     * Return new int[] array obtained from arr int[] array
 //     * by choosing positive numbers only.
 //     * P.S. 0 is not a positive number =)
@@ -77,9 +113,30 @@
 //     * arr = [-1, -2, -3]   -> []
 //     * arr = [1, 2]         -> [1, 2]
 //     */
-//    public int[] getOnlyPositiveNumbers(int[] arr) {
-//
-//    }
+    public int[] getOnlyPositiveNumbers(int[] arr) {
+        int pos = 0;
+
+        for (int i = 0; i < arr.length ; i++) {
+            if(arr[i] > 0){
+                pos++;
+            }
+        }
+        int[] arrpos = new int[pos];
+
+        int countpos = 0;
+
+        for (int i = 0; i < arr.length ; i++) {
+            if(arr[i] > 0){
+                arrpos[countpos] = arr[i];
+                countpos++;
+            }
+        }
+
+        for (int i = 0; i < arrpos.length ; i++) {
+            System.out.println(arrpos[i]);
+        }
+        return arrpos;
+     }
 //
 //    /**
 //     * Return a sorted, ragged, two-dimensional int[][] array following these rules:
@@ -94,4 +151,4 @@
 //    public int[][] sortRaggedArray(int[][] arr) {
 //
 //    }
-//}
+}
