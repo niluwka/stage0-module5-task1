@@ -85,14 +85,14 @@ public class ArrayTasksTest {
     public void getOnlyPositiveNumbersTest(int[] arr, int[] expectedArr) {
         assertArrayEquals(expectedArr, arrayTasks.getOnlyPositiveNumbers(arr));
     }
-//
-//    @ParameterizedTest
-//    @MethodSource("sortRaggedArrayProvider")
-//    public void sortRaggedArrayTest(RaggedArray arr, RaggedArray expectedArr) {
-//
-//        assertArrayEquals(expectedArr.getArr(), arrayTasks.sortRaggedArray(arr.getArr()),
-//                "I think, something went wrong with sorting ragged array implementation");
-//    }
+
+    @ParameterizedTest
+    @MethodSource("sortRaggedArrayProvider")
+    public void sortRaggedArrayTest(RaggedArray arr, RaggedArray expectedArr) {
+
+        assertArrayEquals(expectedArr.getArr(), arrayTasks.sortRaggedArray(arr.getArr()),
+                "I think, something went wrong with sorting ragged array implementation");
+    }
 
 
     private static Stream<Arguments> totalSumTestProvider() {
